@@ -1,31 +1,45 @@
-# FleetIntel
-AI-Integrated IoT Telemetry Pipeline for Real-Time Vehicle Diagnostics
-FleetIntel: AI-Integrated Telemetry Pipeline
-FleetIntel is an end-to-end IoT ecosystem that transforms raw vehicle data into natural language mechanical diagnostics. Instead of just showing a dashboard of gauges, this system uses a "Detective" engine to analyze engine health in real-time, considering both internal sensor data and external environmental factors.
+# FleetIntel: AI-Integrated Telemetry Pipeline
 
+[cite_start]FleetIntel is an end-to-end IoT ecosystem that transforms raw vehicle data into natural language mechanical diagnostics[cite: 3]. [cite_start]Instead of just showing a dashboard of gauges, this system uses a "Detective" engine to analyze engine health in real-time, considering both internal sensor data and external environmental factors[cite: 4].
 
-🚀 The Core Logic
-Most fleet trackers use static "red-line" thresholds (e.g., alert if Temp > 100°C). FleetIntel takes a different approach:
-Adaptive Baselines: The system calculates Z-scores based on a vehicle’s historical performance. It learns what "normal" looks like for a specific engine before it starts flagging anomalies.
-Data Fusion: Using the Open-Meteo API, the system pulls live weather and GPS elevation. This allows the AI to distinguish between a genuine cooling issue and a car simply working hard to climb a steep hill in 30°C heat.
-Natural Language Reporting: Raw PID codes are fed into GPT-4o to generate a human-readable diagnosis sent directly to the fleet manager via Telegram.
+[📄 **View Technical Case Study (PDF)**](./docs/FleetIntel_%20AI-Integrated%20Telemetry%20Pipeline.pdf)
 
-🛠 Tech Stack
-Hardware: Teltonika FMC003 (LTE Cat M1/NB-IoT)
-Ingestion: Flespi (MQTT Broker / Protocol Gateway)
-Database: PostgreSQL + TimescaleDB (Optimized for time-series telemetry)
-Intelligence: OpenAI API (GPT-4o), Open-Meteo API (Weather/Elevation)
-Backend: Python 3.10+ (Pandas, Paho-MQTT, Psycopg2)
-Infrastructure: Ubuntu Server (Systemd for service resilience)
+---
 
-📂 Project Structure
-src/logger.py: Handles the MQTT stream from Flespi and maps raw JSON hex to our PostgreSQL hypertable.
-src/Detective.py: The "Brain." It runs the anomaly detection loop, fetches environmental context, and manages the AI diagnostic flow.
-db/schema.sql: The relational blueprints. Uses an EAV (Entity-Attribute-Value) model to handle any number of OBDII PIDs without needing table migrations.
-.env.example: A template for the required API keys and database credentials.
+## 🚀 The Core Logic
+[cite_start]FleetIntel moves beyond static "red-line" thresholds to provide intelligent alerting[cite: 6]:
 
-🔧 Self-Healing & Integrity
-To ensure the system stays production-ready, I built a custom /status command into the Admin Telegram bot. It performs a real-time audit of:
-Schema Integrity: Checks if all required tables and columns exist.
-Service Health: Verifies the status of the background systemd services.
-Data Velocity: Reports the number of pings received in the last 5 minutes to ensure the hardware is still talking to the cloud.
+* [cite_start]**Adaptive Baselines**: The system calculates $Z$-scores based on a vehicle’s historical performance to learn what "normal" looks like before flagging anomalies[cite: 8, 9].
+* [cite_start]**Contextual Data Fusion**: By integrating the **Open-Meteo API**, the system pulls live weather and GPS elevation[cite: 10]. [cite_start]This allows the AI to distinguish between a mechanical cooling issue and a vehicle working hard to climb a steep hill in high heat[cite: 11].
+* [cite_start]**Natural Language Reporting**: Raw PID codes are processed by **GPT-4o** to generate human-readable diagnoses sent directly to fleet managers via Telegram[cite: 12].
+
+---
+
+## 🛠 Tech Stack
+* [cite_start]**Hardware**: Teltonika FMC003 (LTE Cat M1/NB-IoT) [cite: 14]
+* [cite_start]**Ingestion**: Flespi (MQTT Broker / Protocol Gateway) [cite: 15]
+* [cite_start]**Database**: PostgreSQL + TimescaleDB (Optimized for time-series telemetry) [cite: 16]
+* [cite_start]**AI/Intelligence**: OpenAI API (GPT-4o), Open-Meteo API (Weather/Elevation Data) [cite: 16]
+* [cite_start]**Backend**: Python 3.10+ (Pandas, Paho-MQTT, Psycopg2) [cite: 16]
+* [cite_start]**Infrastructure**: Ubuntu Server managed with Systemd [cite: 17]
+
+---
+
+## 📂 Project Structure
+* [cite_start]`src/logger.py`: Handles the MQTT stream from Flespi and maps raw JSON hex to the database[cite: 19].
+* `src/detective.py`: The "Brain." [cite_start]Runs anomaly detection, fetches environmental context, and manages AI diagnostic flow[cite: 20, 21].
+* [cite_start]`db/schema.sql`: The relational blueprints using an EAV model to handle OBDII PIDs without table migrations[cite: 22, 23].
+* [cite_start]`.env.example`: A template for required API keys and database credentials.
+
+---
+
+## 🔧 Self-Healing & Integrity
+[cite_start]To ensure production readiness, the Admin Telegram bot includes a `/status` command that audits[cite: 26]:
+1. [cite_start]**Schema Integrity**: Verifies all required tables and columns[cite: 28].
+2. [cite_start]**Service Health**: Checks background systemd services (Logger & Guardian)[cite: 29].
+3. [cite_start]**Data Velocity**: Monitors pings received in the last 5 minutes[cite: 30].
+
+---
+
+## ⚖️ License
+Distributed under the MIT License. See `LICENSE` for more information.
