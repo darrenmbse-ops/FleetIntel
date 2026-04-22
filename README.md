@@ -20,7 +20,7 @@ Infrastructure: Ubuntu Server (Systemd for service resilience)
 
 📂 Project Structure
 src/logger.py: Handles the MQTT stream from Flespi and maps raw JSON hex to our PostgreSQL hypertable.
-src/guardian.py: The "Brain." It runs the anomaly detection loop, fetches environmental context, and manages the AI diagnostic flow.
+src/Detective.py: The "Brain." It runs the anomaly detection loop, fetches environmental context, and manages the AI diagnostic flow.
 db/schema.sql: The relational blueprints. Uses an EAV (Entity-Attribute-Value) model to handle any number of OBDII PIDs without needing table migrations.
 .env.example: A template for the required API keys and database credentials.
 
