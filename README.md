@@ -29,7 +29,26 @@ To ensure production readiness, the Admin Telegram bot includes a `/status` comm
 2. **Service Health**: Checks background systemd services (Logger & Guardian).
 3. **Data Velocity**: Monitors pings received in the last 5 minutes.
 
+
+
+
+Code Access:
+The core analytics engine (logger.py and detective.py) is maintained in a private repository for intellectual property protection. Access to the source code can be provided to potential partners or employers upon request. Please contact Darren for collaborator access.
+
+
+
+
+
 ---
 
 ## ⚖️ License
 Distributed under the MIT License. See LICENSE file for more information.
+
+
+
+
+
+
+
+
+
