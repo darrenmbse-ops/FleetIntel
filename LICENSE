@@ -1,12 +1,11 @@
-MIT License
+MIT License (Documentation Only)
 
 Copyright (c) 2026 darrenmbse-ops
 
-Permission is hereby granted, free of charge, to any person/s obtaining a copy
-of all/any document/s 
+Permission is hereby granted, free of charge, to any person obtaining a copy of the documentation files (the "Documentation") found in this repository, to view and share the Documentation, subject to the following conditions:
 
-IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE DOCUMENTATION OR THE USE OR OTHER DEALINGS IN THE
-WHOLE OF THE DOCUMENTATION.
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Documentation.
+
+NO SOURCE CODE GRANTED: This license applies strictly to documentation, architectural diagrams, and presentations. No license is granted for the proprietary source code (logger.py, detective.py, etc.) which remains the sole intellectual property of the author.
+
+THE DOCUMENTATION IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE DOCUMENTATION OR THE USE OR OTHER DEALINGS IN THE DOCUMENTATION.
