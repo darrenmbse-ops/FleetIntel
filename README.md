@@ -2,6 +2,8 @@
 
 FleetIntel is an end-to-end IoT ecosystem that transforms raw vehicle data into natural language mechanical diagnostics. Instead of just showing a dashboard of gauges, this system uses a "Detective" engine to analyze engine health in real-time, considering both internal sensor data and external environmental factors.
 
+This architecture implements a hybrid 'Expert-Statistical' monitoring pipeline designed to eliminate the 'Learning Mode' cold-start problem common in purely data-driven telematics. By integrating SAE J1939 industrial thresholds as a primary safety net, the system provides immediate 'Day 1' protection against catastrophic mechanical failure while the 3-Sigma Z-Score 'Detective' engine matures its baseline for high-precision anomaly detection. To mitigate alert fatigue and increase diagnostic trust, every anomaly is contextualized via Environmental Data Fusion—mapping engine thermals against real-time ambient temperature and GPS-derived gradients from Open-Meteo to distinguish environmental load from genuine part failure. This modular approach, built on TimescaleDB Hypertables, ensures sub-second ingestion and query performance, making the system capable of scaling from a single vehicle to a full-scale defense or maritime fleet without sacrificing integrity or explainability
+
 ---
 
 ## 🚀 The Core Logic
